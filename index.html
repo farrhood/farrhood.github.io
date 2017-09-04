@@ -40,17 +40,6 @@
 
         <script type="text/javascript">
 
-            var fn = localStorage.getItem("FirstName");
-            var ln = localStorage.getItem("LastName");
-            if(!fn || !ln) {
-                // New visitor
-            } else {
-                // Been here before
-                var d= document.getElementById("msg");
-                d.innerHTML = "Welcome back " + fn + " " + ln + "!";
-
-            }
-
             document.forms[0].addEventListener("submit", store);
             function store(e){
                 e.preventDefault();
@@ -60,6 +49,20 @@
 
                 var lnf = document.getElementById("LastName");
                 localStorage.setItem("LastName", lnf.value);
+
+                var d= document.getElementById("msg");
+                d.innerHTML = "Thanks for letting us know you are " + localStorage.getItem("FirstName") + " " + localStorage.getItem("LastName") + "!";
+            }
+
+            var fn = localStorage.getItem("FirstName");
+            var ln = localStorage.getItem("LastName");
+            if(!fn || !ln) {
+                // New visitor
+            } else {
+                // Been here before
+                var d= document.getElementById("msg");
+                d.innerHTML = "Welcome back " + fn + " " + ln + "!";
+
             }
 
         </script>
